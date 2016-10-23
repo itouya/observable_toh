@@ -1,20 +1,39 @@
+import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+
+import { Ng2BootstrapModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
+import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { HeroService } from './shared/hero.service';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { routing } from './app.routing';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
+    HttpModule,
     FormsModule,
-    HttpModule
+    routing,
+    Ng2BootstrapModule
   ],
-  providers: [],
+  declarations: [
+    AppComponent,
+    HeroesComponent,
+    HeroDetailComponent,
+    DashboardComponent,
+    NavigationComponent,
+    HeroSearchComponent
+  ],
+  providers: [
+    HeroService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

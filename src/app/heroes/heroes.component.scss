@@ -1,0 +1,60 @@
+.heroes {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+.heroes li {
+  cursor: pointer;
+  display:table;
+  table-layout:fixed;
+  width:100%;
+  border-radius: 4px;
+  height: 1.6em;
+}
+.heroes li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.heroes li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
+.heroes .id {
+  width: 2em;
+}
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+.heroes span {
+  display:table-cell;
+}
+.heroes .text {
+  position: relative;
+  top: -3px;
+}
+.heroes .glyphicon-minus-sign {
+  color: red;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button.delete {
+  float:right;
+  padding: 0;
+}
+
+input {
+  padding: 5px 10px;
+  margin: 5px 0px;
+}
