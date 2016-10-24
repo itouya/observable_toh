@@ -15,6 +15,15 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
 
+  deleteAll: boolean = false;
+
+  totalItems: number = 0;
+  currentPage: number = 1;
+  maxSize: number = 3;
+  itemsPerPage: number = 5;
+  startIndex: number = 0;
+  endIndex: number = 0;
+
   constructor(
     private heroService: HeroService,
     private router: Router
@@ -22,6 +31,12 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit() {
     this.getHeroes();
+  }
+
+  pageChanged(event:any): void {
+    this.startIndex = event.itemsPerPage * (event.page - 1);
+    this.endIndex = this.startIndex + event.itemsPerPage;
+    this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
 
   gotoDetail(): void {
@@ -33,8 +48,11 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
+    this.startIndex = this.itemsPerPage * (this.currentPage - 1);
+    this.endIndex = this.startIndex + this.itemsPerPage;
     this.heroService.getHeroes().subscribe(heroes=> {
       this.heroes = heroes;
+      this.totalItems = heroes.length;
     });
   }
 

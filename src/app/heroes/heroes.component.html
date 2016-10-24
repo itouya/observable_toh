@@ -5,13 +5,17 @@
   </button>
 </div>
 <ul class="heroes list-group">
-  <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)" class="list-group-item">
+  <li *ngFor="let hero of heroes | slice:startIndex:endIndex" [class.selected]="hero === selectedHero" (click)="onSelect(hero)" class="list-group-item">
     <span class="id">{{hero.id}}</span>
     <span>{{hero.name}}</span>
     <button class="btn delete" (click)="delete(hero); $event.stopPropagation()">
       <span class="glyphicon glyphicon-minus-sign"></span>
     </button>
   </li>
+  <alert *ngIf="deleteAll == true" type="danger">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">Nothing to display hero.</span>
+  </alert>
+  <pagination [itemsPerPage]="itemsPerPage" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination>
 </ul>
 <div *ngIf="selectedHero">
   <h2>
