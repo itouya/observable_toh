@@ -18,7 +18,7 @@ export class HeroSearchComponent {
   public asyncSelected: string = '';
   public dataSource: Observable<any>;
   public typeaheadLoading: boolean = false;
-  public typeaheadNoResult: boolean = false;
+  public typeaheadNoResults: boolean = false;
   constructor(
     private heroService: HeroService,
     private router: Router
@@ -34,12 +34,12 @@ export class HeroSearchComponent {
   }
 
   gotoDetail(hero: Hero) {
-    let link = ['/details', hero.id];
+    let link = ['/detail', hero.id];
     this.router.navigate(link);
   }
 
   changeTypeaheadNoResults(e: boolean): void {
-    this.typeaheadNoResult = e;
+    this.typeaheadNoResults = e;
   }
 
   changeTypeaheadLoading(e: boolean): void {
