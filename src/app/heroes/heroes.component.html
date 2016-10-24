@@ -5,7 +5,7 @@
   </button>
 </div>
 <ul class="heroes list-group">
-  <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+  <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)" class="list-group-item">
     <span class="id">{{hero.id}}</span>
     <span>{{hero.name}}</span>
     <button class="btn delete" (click)="delete(hero); $event.stopPropagation()">
@@ -13,3 +13,9 @@
     </button>
   </li>
 </ul>
+<div *ngIf="selectedHero">
+  <h2>
+    {{selectedHero.name | uppercase}}
+  </h2>
+  <button (click)="gotoDetail()">View Detail</button>
+</div>

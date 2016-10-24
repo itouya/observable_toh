@@ -32,7 +32,8 @@ export class HeroService {
   }
 
   delete(id: number): Observable<any> {
-    return this.http.delete(this.apiUrl, {headers: this.headers})
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url, {headers: this.headers})
                .map(() => null)
                .catch(this.handleError);
   }
