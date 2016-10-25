@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
+import { TranslateModule } from 'ng2-translate';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
@@ -20,7 +21,8 @@ import { routing } from './app.routing';
     HttpModule,
     FormsModule,
     routing,
-    Ng2BootstrapModule
+    Ng2BootstrapModule,
+    TranslateModule.forRoot()
   ],
   declarations: [
     AppComponent,

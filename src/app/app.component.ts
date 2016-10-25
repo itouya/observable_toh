@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from 'ng2-translate';
 
 import '../styles.scss';
 
@@ -10,7 +11,8 @@ import '../styles.scss';
 export class AppComponent {
   url = 'https://github.com/preboot/angular2-webpack';
 
-  constructor() {
-    // Do something with api
+  constructor(private translate: TranslateService) {
+    translate.setDefaultLang('en');
+    translate.use('ja');
   }
 }
