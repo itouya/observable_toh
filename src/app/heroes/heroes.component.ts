@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { TranslateService } from 'ng2-translate';
+
 import { Hero } from '../shared/hero';
 import { HeroService } from '../shared/hero.service';
 
@@ -23,11 +25,27 @@ export class HeroesComponent implements OnInit {
   itemsPerPage: number = 5;
   startIndex: number = 0;
   endIndex: number = 0;
+  firstText: string = 'FIRST';
+  lastText: string = 'LAST';
+  previousText: string = 'PRE';
+  nextText: string = 'NEXT';
 
   constructor(
     private heroService: HeroService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private translate: TranslateService
+  ) {
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.firstText = this.translate.instant(this.firstText);
+      this.lastText = this.translate.instant(this.lastText);
+      this.previousText = this.translate.instant(this.previousText);
+      this.nextText = this.translate.instant(this.nextText);
+    });
+    this.firstText = this.translate.instant(this.firstText);
+    this.lastText = this.translate.instant(this.lastText);
+    this.previousText = this.translate.instant(this.previousText);
+    this.nextText = this.translate.instant(this.nextText);
+  }
 
   ngOnInit() {
     this.getHeroes();
@@ -50,7 +68,7 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     this.startIndex = this.itemsPerPage * (this.currentPage - 1);
     this.endIndex = this.startIndex + this.itemsPerPage;
-    this.heroService.getHeroes().subscribe(heroes=> {
+    this.heroService.getHeroes().subscribe(heroes => {
       this.heroes = heroes;
       this.totalItems = heroes.length;
     });

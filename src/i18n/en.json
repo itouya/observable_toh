@@ -3,5 +3,18 @@
   "T4H": "Top 4 Heroes",
   "HS" : "Search Heroes",
   "DB" : "Dashboard",
-  "H"  : "Heroes"
+  "H"  : "Heroes",
+  "PRE": "Previous",
+  "NEXT": "Next",
+  "FIRST": "|<<",
+  "LAST": ">>|",
+  "NRF": "No result found.",
+  "BACK": "Back",
+  "SAVE": "Save",
+  "ADD" : "Add",
+  "NAME": "Name",
+  "HLT": "Hero's name loaded with timeout",
+  "HN": "Hero name",
+  "VD": "View detail",
+  "ID": "ID"
 }

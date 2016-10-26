@@ -8,7 +8,7 @@
           (typeaheadOnSelect)="typeaheadOnSelect($event)"
           [typeaheadOptionsLimit]="7"
           [typeaheadOptionField]="'name'"
-          placeholder="Hero's name loaded with timeout"
+          placeholder="{{ 'HLT' | translate }}"
           class="form-control">
     <span class="form-control-feedback glyphicon glyphicon-search"></span>
   </div>
@@ -16,6 +16,6 @@
     <i class="glyphicon glyphicon-refresh ng-hide" style=""></i>
   </div>
   <div *ngIf="typeaheadNoResults===true" class="" style="">
-    <i class="glyphicon glyphicon-remove"></i> No Results Found
+    <i class="glyphicon glyphicon-remove"></i> {{ 'NRF' | translate }}
   </div>
 </div>

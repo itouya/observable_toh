@@ -1,7 +1,7 @@
 <div class="add">
-  <input #heroName placeholder="Hero Name" />
+  <input #heroName placeholder="{{ 'HN' | translate }}" />
   <button (click)="add(heroName.value); heroName.value=''">
-    <span class="glyphicon glyphicon-plus-sign"></span> add
+    <span class="glyphicon glyphicon-plus-sign"></span> {{ 'ADD' | translate }}
   </button>
 </div>
 <ul class="heroes list-group">
@@ -15,11 +15,21 @@
   <alert *ngIf="deleteAll == true" type="danger">
     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">Nothing to display hero.</span>
   </alert>
-  <pagination [itemsPerPage]="itemsPerPage" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination>
+  <pagination
+    [itemsPerPage]="itemsPerPage"
+    [totalItems]="totalItems"
+    [boundaryLinks]="true"
+    [firstText]="firstText"
+    [lastText]="lastText"
+    [previousText]="previousText"
+    [nextText]="nextText"
+    [(ngModel)]="currentPage"
+    (pageChanged)="pageChanged($event)">
+  </pagination>
 </ul>
 <div *ngIf="selectedHero">
   <h2>
     {{selectedHero.name | uppercase}}
   </h2>
-  <button (click)="gotoDetail()">View Detail</button>
+  <button (click)="gotoDetail()">{{ 'VD' | translate }}</button>
 </div>
