@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { TranslateService } from 'ng2-translate';
+import { TranslateService, LangChangeEvent } from 'ng2-translate';
 
 import { Hero } from '../shared/hero';
 import { HeroService } from '../shared/hero.service';
