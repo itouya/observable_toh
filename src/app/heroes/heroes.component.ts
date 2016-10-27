@@ -25,27 +25,12 @@ export class HeroesComponent implements OnInit {
   itemsPerPage: number = 5;
   startIndex: number = 0;
   endIndex: number = 0;
-  firstText: string = 'FIRST';
-  lastText: string = 'LAST';
-  previousText: string = 'PRE';
-  nextText: string = 'NEXT';
 
   constructor(
     private heroService: HeroService,
     private router: Router,
     private translate: TranslateService
-  ) {
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.firstText = this.translate.instant(this.firstText);
-      this.lastText = this.translate.instant(this.lastText);
-      this.previousText = this.translate.instant(this.previousText);
-      this.nextText = this.translate.instant(this.nextText);
-    });
-    this.firstText = this.translate.instant(this.firstText);
-    this.lastText = this.translate.instant(this.lastText);
-    this.previousText = this.translate.instant(this.previousText);
-    this.nextText = this.translate.instant(this.nextText);
-  }
+  ) { }
 
   ngOnInit() {
     this.getHeroes();

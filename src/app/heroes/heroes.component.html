@@ -19,12 +19,13 @@
     [itemsPerPage]="itemsPerPage"
     [totalItems]="totalItems"
     [boundaryLinks]="true"
-    [firstText]="firstText"
-    [lastText]="lastText"
-    [previousText]="previousText"
-    [nextText]="nextText"
     [(ngModel)]="currentPage"
-    (pageChanged)="pageChanged($event)">
+    (pageChanged)="pageChanged($event)"
+    firstText="{{ 'FIRST' | translate }}"
+    lastText="{{ 'LAST' | translate }}"
+    previousText="{{ 'PRE' | translate }}"
+    nextText="{{ 'NEXT' | translate }}"
+  >
   </pagination>
 </ul>
 <div *ngIf="selectedHero">
