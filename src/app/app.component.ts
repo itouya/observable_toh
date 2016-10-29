@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
 
-import '../styles.scss';
+// import '../styles.scss';
 
 @Component({
   selector: 'app-root', // <my-app></my-app>
